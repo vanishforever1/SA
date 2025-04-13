@@ -15,7 +15,7 @@ import java.security.Security;
 import java.util.Base64;
 
 @Slf4j
-//@Service
+@Service
 public class ApiEncryptServiceAesImpl implements ApiEncryptService {
 
     private static final String CHARSET = "UTF-8";

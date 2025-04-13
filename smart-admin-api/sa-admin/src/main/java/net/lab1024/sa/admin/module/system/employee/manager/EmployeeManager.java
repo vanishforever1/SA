@@ -16,13 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * 员工 manager
- *
- * @Author 1024创新实验室: 胡克
- * @Date 2021-12-29 21:52:46
- * @Wechat zhuoda1024
- * @Email lab1024@163.com
- * @Copyright  <a href="https://1024lab.net">1024创新实验室</a>
+ * 员工 manager *
  */
 @Service
 public class EmployeeManager extends ServiceImpl<EmployeeDao, EmployeeEntity> {

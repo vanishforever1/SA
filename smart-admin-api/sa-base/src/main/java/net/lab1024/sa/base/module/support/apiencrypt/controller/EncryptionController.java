@@ -1,5 +1,7 @@
 package net.lab1024.sa.base.module.support.apiencrypt.controller;
 
+import com.baomidou.mybatisplus.core.assist.ISqlRunner;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import lombok.Data;
 import net.lab1024.sa.base.common.annoation.NoNeedLogin;
 import net.lab1024.sa.base.common.domain.ResponseDTO;
@@ -13,6 +15,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import static cn.dev33.satoken.SaManager.log;
 
 @RestController
@@ -21,6 +26,8 @@ public class EncryptionController {
 
     @Autowired
     private EncryptionConfigService encryptionService;
+
+
 
     @PostMapping("/updateKey")
     public ResponseDTO<String> updateKey(@RequestBody @Valid KeyUpdateDTO keyUpdateDTO) {
@@ -53,6 +60,19 @@ public class EncryptionController {
             return ResponseDTO.userErrorParam("加密失败：" + e.getMessage());
         }
     }
+
+    @Autowired
+    private EncryptionConfigService encryptionConfigService; // 通过Service访问数据
+    // 新增接口（保持POST请求）
+    @PostMapping("/activeAlgorithms")
+    public ResponseDTO<List<String>> getActiveAlgorithms() {
+        return encryptionConfigService.getActiveAlgorithms();
+    }
+
+
+
+
+
 
     @Data
     public static class KeyRequestDTO {

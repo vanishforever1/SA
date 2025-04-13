@@ -15,7 +15,7 @@ import java.util.Base64;
 import static cn.hutool.core.convert.Convert.hexToBytes;
 
 @Slf4j
-@Service
+//@Service
 public class ApiEncryptServiceSmImpl implements ApiEncryptService {
 
     private static final String CHARSET = "UTF-8";

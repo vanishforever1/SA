@@ -20,13 +20,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 /**
- * 三级等保 登录 相关
- *
- * @Author 1024创新实验室-主任:卓大
- * @Date 2023/10/11 19:25:59
- * @Wechat zhuoda1024
- * @Email lab1024@163.com
- * @Copyright  <a href="https://1024lab.net">1024创新实验室</a>，Since 2012
+ * 三级等保 登录 相关 *
  */
 
 @Service

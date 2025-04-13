@@ -2,15 +2,14 @@ import CryptoJS from 'crypto-js';
 import CryptoSM from 'sm-crypto';
 import JSEncrypt from 'jsencrypt';
 
-export let currentAlgorithm = 'SM4';
-//let currentAlgorithm = 'AES';
+//export let currentAlgorithm = 'SM4';
+export let currentAlgorithm = 'AES';
 let rsaPrivateKey = null; // 保存当前会话的RSA私钥
 export let currentKeys = {
   AES: '',
   SM4: ''
 };
 localStorage.setItem('name', '张三')
-console.log('测试1'); //
 export const refreshKeys = async (axiosInstance) => {
   try {
 

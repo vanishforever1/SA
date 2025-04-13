@@ -10,6 +10,9 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Slf4j
 @Service
 public class EncryptionConfigService {
@@ -42,4 +45,24 @@ public class EncryptionConfigService {
         encryptionConfigMapper.updateById(config);
         return ResponseDTO.ok("密钥更新成功");
     }
+
+    // EncryptionConfigService.java（新增方法）
+    public ResponseDTO<List<String>> getActiveAlgorithms() {
+        LambdaQueryWrapper<EncryptionConfig> query = new LambdaQueryWrapper<>();
+        query.select(EncryptionConfig::getAlgorithmType)
+                .eq(EncryptionConfig::getIsActive, true);
+
+        try {
+            List<EncryptionConfig> configs = encryptionConfigMapper.selectList(query);
+            List<String> algorithms = configs.stream()
+                    .map(EncryptionConfig::getAlgorithmType)
+                    .distinct()
+                    .collect(Collectors.toList());
+            return ResponseDTO.ok(algorithms);
+        } catch (Exception e) {
+            log.error("获取激活算法失败", e);
+            return ResponseDTO.userErrorParam("获取激活算法失败");
+        }
+    }
 }
+

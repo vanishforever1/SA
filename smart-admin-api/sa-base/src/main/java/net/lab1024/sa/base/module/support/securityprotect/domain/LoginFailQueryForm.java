@@ -7,11 +7,7 @@ import net.lab1024.sa.base.common.domain.PageParam;
 import java.time.LocalDate;
 
 /**
- * 登录失败 分页查询表单
- *
- * @Author 1024创新实验室-主任-卓大
- * @Date 2023-10-17 18:02:37
- * @Copyright 1024创新实验室
+ * 登录失败 分页查询表单 *
  */
 
 @Data
