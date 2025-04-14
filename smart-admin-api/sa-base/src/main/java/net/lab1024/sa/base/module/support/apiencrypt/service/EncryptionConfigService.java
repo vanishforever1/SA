@@ -46,7 +46,7 @@ public class EncryptionConfigService {
         return ResponseDTO.ok("密钥更新成功");
     }
 
-    // EncryptionConfigService.java（新增方法）
+
     public ResponseDTO<List<String>> getActiveAlgorithms() {
         LambdaQueryWrapper<EncryptionConfig> query = new LambdaQueryWrapper<>();
         query.select(EncryptionConfig::getAlgorithmType)
