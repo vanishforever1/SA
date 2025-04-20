@@ -56,8 +56,6 @@ function object2string(data) {
 }
 
 
-
-
 const Encryptors = {
   AES: {
     encryptData(data) {

@@ -1,28 +1,28 @@
 <!--
-  * 接口加密、解密 *
+  * 接口加解密 *
 -->
 <template>
-  <a-alert closable>
-    <template v-slot:message>
-      <h4>接口加解密：</h4>
-    </template>
-    <template v-slot:description>
-      <pre>
-简介：接口加解密分为： 前端请求参数加解密 和 后端返回结果加解密。
+<!--  <a-alert closable>-->
+<!--    <template v-slot:message>-->
+<!--      <h4>接口加解密：</h4>-->
+<!--    </template>-->
+<!--    <template v-slot:description>-->
+<!--      <pre>-->
+<!--简介：接口加解密分为： 前端请求参数加解密 和 后端返回结果加解密。-->
 
-- 支持国密SM、AES加密算法。前端修改:/lib/encrypt.js文件，后端：启动 ApiEncryptServiceAesImpl 或者 ApiEncryptServiceSmImpl
-- 前端请看：/lib/encrypt.js、/lib/axios.js  /api/support/api-encrypt/api-encrypt-api.js 等文件
-- 后端请看：@ApiEncrypt 和 @ApiDecrypt 注解，具体请看 sa-common项目中的 net.lab1024.sa.common.module.support.apiencrypt 包
-- demo请看：前端：/views/support/api-encrypt 目录，后端 请看：sa-admin项目的：net.lab1024.sa.admin.module.system.support.AdminApiEncryptController
-</pre
-      >
-    </template>
-  </a-alert>
-  <br />
-  <a-alert
-    message="当前加密算法为：SM4，若想改为 AES，前端请修改 'lib/encrypt.js'文件中的EncryptObject，后端请修改 ApiEncryptService 的实现类"
-    type="error"
-  />
+<!-- - 支持国密SM、AES加密算法。前端修改:/lib/encrypt.js文件，后端：启动 ApiEncryptServiceAesImpl 或者 ApiEncryptServiceSmImpl-->
+<!-- - 前端请看：/lib/encrypt.js、/lib/axios.js  /api/support/api-encrypt/api-encrypt-api.js 等文件-->
+<!-- - 后端请看：@ApiEncrypt 和 @ApiDecrypt 注解，具体请看 sa-common项目中的 net.lab1024.sa.common.module.support.apiencrypt 包-->
+<!-- - demo请看：前端：/views/support/api-encrypt 目录，后端 请看：sa-admin项目的：net.lab1024.sa.admin.module.system.support.AdminApiEncryptController-->
+<!--</pre-->
+<!--      >-->
+<!--    </template>-->
+<!--  </a-alert>-->
+<!--  <br />-->
+<!--  <a-alert-->
+<!--    message="当前加密算法为：SM4，若想改为 AES，前端请修改 'lib/encrypt.js'文件中的EncryptObject，后端请修改 ApiEncryptService 的实现类"-->
+<!--    type="error"-->
+<!--  />-->
   <br />
   <!---------- 请求参数加密 begin ----------->
   <a-card title="一、请求加密 Demo">
@@ -160,8 +160,8 @@ import {message} from "ant-design-vue";
 
   //请求参数加密
   const requestEncryptForm = reactive({
-    age: 100, // 年龄
-    name: '卓大', //姓名
+    age: 18, // 年龄
+    name: '张三', //姓名
   });
 
   // 参数字符串
@@ -185,8 +185,8 @@ import {message} from "ant-design-vue";
   // ---------------------------- 第二种：返回结果解密 ----------------------------
 
   const responseEncryptForm = reactive({
-    age: 100, // 年龄
-    name: '卓大', //姓名
+    age: 18, // 年龄
+    name: '张三', //姓名
   });
 
   const responseEncryptFormStr = ref('');
@@ -203,8 +203,8 @@ import {message} from "ant-design-vue";
   // ---------------------------- 第三种：请求加密、返回解密 ----------------------------
 
   const form = reactive({
-    age: 100, // 年龄
-    name: '卓大', //姓名
+    age: 18, // 年龄
+    name: '张三', //姓名
   });
 
   const formStr = ref('');
@@ -224,16 +224,16 @@ import {message} from "ant-design-vue";
 
   const arrayForm = reactive([
     {
-      age: 1, // 年龄
-      name: '卓1', //姓名
+      age: 21, // 年龄
+      name: '小明', //姓名
     },
     {
-      age: 2, // 年龄
-      name: '卓2', //姓名
+      age: 222, // 年龄
+      name: '小亮', //姓名
     },
     {
-      age: 3, // 年龄
-      name: '卓3', //姓名
+      age: 23, // 年龄
+      name: '小军', //姓名
     },
   ]);
 

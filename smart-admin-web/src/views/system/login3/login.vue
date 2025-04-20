@@ -84,7 +84,7 @@
   //--------------------- 登录表单 ---------------------------------
 
   const loginForm = reactive({
-    loginName: 'admin',
+    loginName: '',
     password: '',
     captchaCode: '',
     captchaUuid: '',
