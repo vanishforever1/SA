@@ -5,8 +5,8 @@
   <div class="login-container">
     <div class="box-item desc">
       <div class="welcome">
-        <p>欢迎登录 SmartAdmin V3</p>
-        <p class="sub-welcome">「高质量代码、简洁、安全」的开发平台</p>
+        <p>欢迎登录 </p>
+        <p class="sub-welcome">基于Web应用的数据加解密系统</p>
       </div>
       <img class="welcome-img" :src="leftBg2" />
     </div>
@@ -84,8 +84,8 @@
   //--------------------- 登录表单 ---------------------------------
 
   const loginForm = reactive({
-    loginName: '',
-    password: '',
+    loginName: 'admin',
+    password: '123456',
     captchaCode: '',
     captchaUuid: '',
     loginDevice: LOGIN_DEVICE_ENUM.PC.value,

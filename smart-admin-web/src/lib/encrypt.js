@@ -9,7 +9,6 @@ export let currentKeys = {
   AES: '',
   SM4: ''
 };
-localStorage.setItem('name', '张三')
 export const refreshKeys = async (axiosInstance) => {
   try {
 
@@ -25,8 +24,9 @@ export const refreshKeys = async (axiosInstance) => {
       publicKey: publicKey,
       rsaPrivateKey:rsaPrivateKey//测试使用，实际使用中请删除
     });
-    console.log('公钥加密后的密钥:', response.data); // 加密后的密钥
 
+
+    console.log('输出公钥:', publicKey); // 加密后的密钥
     localStorage.setItem('encryptedKey', response.data);//存储公钥加密后的密钥
 
     console.log('输出私钥',rsaPrivateKey);//测试使用，实际使用中请删除
