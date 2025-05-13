@@ -2,8 +2,8 @@ import CryptoJS from 'crypto-js';
 import CryptoSM from 'sm-crypto';
 import JSEncrypt from 'jsencrypt';
 
-//export let currentAlgorithm = 'SM4';
-export let currentAlgorithm = 'AES';
+export let currentAlgorithm = 'SM4';
+//export let currentAlgorithm = 'AES';
 let rsaPrivateKey = null; // 保存当前会话的RSA私钥
 export let currentKeys = {
   AES: '',
@@ -59,9 +59,9 @@ function object2string(data) {
 const Encryptors = {
   AES: {
     encryptData(data) {
-      // if (!currentKeys.AES) {
-      //   throw new Error("AES密钥未初始化，请先调用refreshKeys获取密钥");
-      // }
+      if (!currentKeys.AES) {
+        throw new Error("AES密钥未初始化，请先调用refreshKeys获取密钥");
+      }
       const key = CryptoJS.enc.Utf8.parse(currentKeys[currentAlgorithm]);
       const utf8Data = CryptoJS.enc.Utf8.parse(object2string(data));
       const encrypted = CryptoJS.AES.encrypt(utf8Data, key, {
@@ -81,9 +81,9 @@ const Encryptors = {
   },
   SM4: {
     encryptData(data) {
-      if (!currentKeys[currentAlgorithm]) {
-        throw new Error("SM4密钥未初始化，请先调用refreshKeys获取密钥");
-      }
+      // if (!currentKeys[currentAlgorithm]) {
+      //   throw new Error("SM4密钥未初始化，请先调用refreshKeys获取密钥");
+      // }
       console.log('SM4日志解密得到的密钥:', currentKeys[currentAlgorithm] ); // 新增日志
       const encryptData = CryptoSM.sm4.encrypt(object2string(data), currentKeys[currentAlgorithm]);
       return CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(encryptData));
